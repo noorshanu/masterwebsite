@@ -126,19 +126,6 @@ const fadeUp = {
   }),
 };
 
-const glassCard = {
-  hidden: { opacity: 0, y: 40 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.35 + i * 0.12,
-      duration: 0.6,
-      ease: easeLuxury,
-    },
-  }),
-};
-
 const Hero = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -166,7 +153,7 @@ const Hero = () => {
   });
 
   return (
-    <section className="relative">
+    <section className="relative pb-6">
       <div
         ref={scrollRef}
         className="relative h-[320vh] md:h-[400vh] lg:h-[440vh]"
@@ -216,7 +203,7 @@ const Hero = () => {
                     Get Started
                   </motion.a>
                   <motion.a
-                    href="#about"
+                    href="#why-choose-us"
                     className="inline-flex rounded-full border-2 border-[#3a4a44] bg-transparent px-8 py-3.5 text-sm font-semibold text-[#3a4a44]"
                     whileHover={{
                       scale: 1.015,
@@ -249,62 +236,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative z-20 -mt-10 grid gap-6 md:-mt-16 md:grid-cols-2 md:gap-8 lg:-mt-20">
-        <motion.article
-          className="cursor-default rounded-[2rem] border border-white/50 bg-[rgba(255,255,255,0.3)] p-8 shadow-lg backdrop-blur-[10px] md:p-10"
-          variants={glassCard}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
-          whileHover={
-            prefersReducedMotion
-              ? undefined
-              : {
-                  y: -4,
-                  boxShadow:
-                    "0 24px 48px -12px rgba(58, 74, 68, 0.22), 0 0 0 1px rgba(255,255,255,0.45)",
-                  transition: { duration: 0.45, ease: easeLuxury },
-                }
-          }
-          custom={0}
-          id="services"
-        >
-          <h2 className="font-serif text-2xl font-semibold text-[#3a4a44]">
-            Our Services
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed text-[#3a4a44]/80 sm:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </motion.article>
-        <motion.article
-          className="cursor-default rounded-[2rem] border border-white/50 bg-[rgba(255,255,255,0.3)] p-8 shadow-lg backdrop-blur-[10px] md:p-10"
-          variants={glassCard}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
-          whileHover={
-            prefersReducedMotion
-              ? undefined
-              : {
-                  y: -4,
-                  boxShadow:
-                    "0 24px 48px -12px rgba(58, 74, 68, 0.22), 0 0 0 1px rgba(255,255,255,0.45)",
-                  transition: { duration: 0.45, ease: easeLuxury },
-                }
-          }
-          custom={1}
-          id="about"
-        >
-          <h2 className="font-serif text-2xl font-semibold text-[#3a4a44]">
-            About Us
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed text-[#3a4a44]/80 sm:text-base">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat duis aute.
-          </p>
-        </motion.article>
-      </div>
     </section>
   );
 };

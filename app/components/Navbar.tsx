@@ -5,8 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const links = [
-  { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  { href: "#why-choose-us", label: "Why Us" },
+  { href: "#reviews", label: "Reviews" },
   { href: "#contact", label: "Contact" },
 ];
 
